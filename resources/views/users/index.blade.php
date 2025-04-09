@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('users.layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
-    <title>Usuários</title>
-</head>
+@section('title', 'Usuários')
+@section('css', 'css/home.css')
 
-<body>
+@section('content')
 
     <section class="sessao-intro">
         <div class="circle"></div>
@@ -118,10 +113,5 @@
         </div>
     </section>
 
-</body>
+@endsection
 
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="js/home.js"></script>
-
-</html>

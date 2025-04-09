@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('users.layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/edit.css">
-    <title>Editar</title>
-</head>
+@section('title', 'Editar Usuário')
+@section('css', '/css/edit.css')
 
-<body>
+@section('content')
 
     <div class="container">
         <div class="action-links">
@@ -84,6 +79,4 @@
         </form>
     </div>
 
-</body>
-
-</html>
+@endsection
