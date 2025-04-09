@@ -4,59 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/create.css">
     <title>Criando usuários</title>
 </head>
 
 <body>
-    <a href="{{ route('users.index') }}">Cadastrar</a>
+    <div class="container">
+        <a href="{{ route('users.index') }}" class="back-link">← Voltar para lista de usuários</a>
 
-    <h2>Cadastrar usuário</h2>
 
-    @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    {{ $error }}
-    <br>
-    @endforeach
-    @endif
+        <h2>Cadastrar usuário</h2>
 
-    <form action="{{ route('users.store') }}" method="POST">
-        @csrf
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        {{ $error }}
+        <br>
+        @endforeach
+        @endif
 
-        <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" value="{{ old('name') }}">
-        <br><br>
+        <form action="{{ route('users.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Digite o nome completo" required>
+            </div>
 
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email" value="{{ old('email') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="Digite o e-mail válido" required>
+            </div>
 
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" value="{{ old('password') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <input type="text" name="departamento" id="departamento" value="{{ old('departamento') }}" placeholder="Informe o departamento" required>
+            </div>
 
-        <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" id="cargo" value="{{ old('cargo') }}" placeholder="Informe o cargo" required>
+            </div>
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" name="endereco" id="endereco" value="{{ old('endereco') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" value="{{ old('cpf') }}" placeholder="000.000.000-00" required>
+            </div>
 
-        <label for="cidade">Cidade:</label>
-        <input type="text" name="cidade" id="cidade" value="{{ old('cidade') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="salario">Salário:</label>
+                <input type="text" name="salario" id="salario" value="{{ old('salario') }}" placeholder="R$ 0,00" required>
+            </div>
 
-        <label for="estado">Estado:</label>
-        <input type="text" name="estado" id="estado" value="{{ old('estado') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}" placeholder="(00) 00000-0000" required>
+            </div>
 
-        <label for="cep">CEP:</label>
-        <input type="text" name="cep" id="cep" value="{{ old('cep') }}">
-        <br><br>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" value="{{ old('endereco') }}" placeholder="Informe o endereço completo" required>
+            </div>
 
-        <button type="submit">Cadastrar</button>
+            <div class="form-group">
+                <label for="nome_mae">Nome da Mãe:</label>
+                <input type="text" name="nome_mae" id="nome_mae" value="{{ old('nome_mae') }}" placeholder="Informe o nome da mãe" required>
+            </div>
 
-    </form>
+            <div class="form-group">
+                <label for="observacoes">Observações:</label>
+                <textarea name="observacoes" id="observacoes" placeholder="Adicione observações relevantes">{{ old('observacoes') }}</textarea>
+            </div>
+
+            <button type="submit" class="btn">Cadastrar</button>
+
+        </form>
+    </div>
 
 </body>
 

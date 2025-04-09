@@ -1,61 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/edit.css">
     <title>Editar</title>
 </head>
+
 <body>
 
-    <a href="{{ route('users.index') }}">Listar</a> <br>
-    <a href="{{ route('users.show', ['user' => $user->id]) }}">Visualizar</a>
+    <div class="container">
+        <div class="action-links">
+            <a href="{{ route('users.index') }}" class="action-link">← Listar Usuários</a>
+            <a href="{{ route('users.show', ['user' => $user->id]) }}" class="action-link"> Visualizar</a>
+        </div>
 
-    <h2>Editar usuário</h2>
+        <h2>Editar Usuário</h2>
 
-    @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    {{ $error }}
-    <br>
-    @endforeach
-    @endif
+        @if ($errors->any())
+        <div class="error-message">
+            @foreach ($errors->all() as $error)
+            {{ $error }}<br>
+            @endforeach
+        </div>
+        @endif
 
-    <form action="{{ route('users.update', ['user' => $user->id]) }}" method="POST">
-        @csrf
-        @method('PUT')
+        <form action="{{ route('users.update', ['user' => $user->id]) }}" method="POST">
+            @csrf
+            @method('PUT')
 
-        <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}">
-        <br><br>
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}">
-        <br><br>
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" value="{{ old('password') }}">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}" placeholder="Digite o nome completo" required>
+            </div>
 
-        <br><br>
-        <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" id="telefone" value="{{ old('telefone', $user->telefone) }}">
-        <br><br>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" value="{{ old('email', $user->email) }}" placeholder="Digite o e-mail válido" required>
+            </div>
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" name="endereco" id="endereco" value="{{ old('endereco', $user->endereco) }}">
-        <br><br>
+            <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <input type="text" name="departamento" id="departamento" value="{{ old('departamento', $user->departamento) }}" placeholder="Informe o departamento" required>
+            </div>
 
-        <label for="cidade">Cidade:</label>
-        <input type="text" name="cidade" id="cidade" value="{{ old('cidade', $user->cidade) }}">
-        <br><br>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" name="cargo" id="cargo" value="{{ old('cargo', $user->cargo) }}" placeholder="Informe o cargo" required>
+            </div>
 
-        <label for="estado">Estado:</label>
-        <input type="text" name="estado" id="estado" value="{{ old('estado', $user->estado) }}">
-        <br><br>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" value="{{ old('cpf', $user->cpf) }}" placeholder="000.000.000-00" required>
+            </div>
 
-        <label for="cep">CEP:</label>
-        <input type="text" name="cep" id="cep" value="{{ old('cep', $user->cep) }}">
-        <br><br>
+            <div class="form-group">
+                <label for="salario">Salário:</label>
+                <input type="text" name="salario" id="salario" value="{{ old('salario', $user->salario) }}" placeholder="R$ 0,00" required>
+            </div>
 
-        <button type="submit">Salvar</button>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone" value="{{ old('telefone', $user->telefone) }}" placeholder="(00) 00000-0000" required>
+            </div>
 
-    </form>
-    
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" value="{{ old('endereco', $user->endereco) }}" placeholder="Informe o endereço completo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nome_mae">Nome da Mãe:</label>
+                <input type="text" name="nome_mae" id="nome_mae" value="{{ old('nome_mae', $user->nome_mae) }}" placeholder="Informe o nome da mãe" required>
+            </div>
+
+            <div class="form-group">
+                <label for="observacoes">Observações:</label>
+                <textarea name="observacoes" id="observacoes" placeholder="Adicione observações relevantes">{{ old('observacoes', $user->observacoes) }}</textarea>
+            </div>
+
+            <button type="submit" class="btn">Salvar Alterações</button>
+        </form>
+    </div>
+
 </body>
+
 </html>

@@ -18,12 +18,14 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => bcrypt('password123'),
-            'telefone' => '123456789',
-            'endereco' => '123 Main St',
-            'cidade' => 'Sample City',
-            'estado' => 'Sample State',
-            'cep' => '12345-678',
+            'departamento' => 'Financeiro',
+            'cargo' => 'Analista',
+            'cpf' => '123.456.789-00',
+            'salario' => '5000.00',
+            'telefone' => '(11) 98765-4321',
+            'endereco' => 'Rua Exemplo, 123, Bairro Teste, Cidade Exemplo',
+            'nome_mae' => 'Maria Teste',
+            'observacoes' => 'Funcionário em período de experiência',
         ]);
     }
 }
